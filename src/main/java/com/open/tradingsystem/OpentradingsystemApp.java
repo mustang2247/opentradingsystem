@@ -2,13 +2,12 @@ package com.open.tradingsystem;
 
 import com.open.tradingsystem.config.ApplicationProperties;
 import com.open.tradingsystem.config.DefaultProfileUtil;
-
 import io.github.jhipster.config.JHipsterConstants;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.autoconfigure.*;
+import org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.MetricRepositoryAutoConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -61,6 +60,12 @@ public class OpentradingsystemApp {
      * @throws UnknownHostException if the local host name could not be resolved into an address
      */
     public static void main(String[] args) throws UnknownHostException {
+//        try {
+//            Global.commandRegistry.initByAnnotation( Global.servicePackage );
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
         SpringApplication app = new SpringApplication(OpentradingsystemApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
@@ -68,6 +73,7 @@ public class OpentradingsystemApp {
         if (env.getProperty("server.ssl.key-store") != null) {
             protocol = "https";
         }
+
         log.info("\n----------------------------------------------------------\n\t" +
                 "Application '{}' is running! Access URLs:\n\t" +
                 "Local: \t\t{}://localhost:{}\n\t" +

@@ -169,7 +169,7 @@ public class PropUtil {
     }
 
     public static void main( String[] args ) {
-//        String val = PropUtil.getRemoteProp( "http://192.168.2.12:6173/fish_back_cfg/test.properties", "abc" );
-//        System.out.println( val );
+        String val = PropUtil.getRemoteProp( "http://192.168.2.12:6173/fish_back_cfg/test.properties", "abc" );
+        System.out.println( val );
     }
 }

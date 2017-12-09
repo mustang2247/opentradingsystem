@@ -33,11 +33,6 @@ public class HttpUtils {
             query = Create_linkString(pars, CHAR_SET);
         }
 
-//        if (host.indexOf("?") != -1)
-//            host += "&_charset=" + CHAR_SET;
-//        else
-//            host += "?_charset=" + CHAR_SET;
-
         return getRequest(host, query, CHAR_SET);
     }
 
